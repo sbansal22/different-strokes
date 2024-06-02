@@ -22,6 +22,8 @@
         body,
         html {
             height: 100%;
+            margin: 0;
+            padding: 0;
             color: #777;
             line-height: 1.8;
         }
@@ -34,12 +36,19 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         /* First image (Logo. Full height) */
         .bgimg-1 {
             background-image: url('./images/Feathers-of-Paradise.jpeg');
             min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Second image (Portfolio) */
@@ -52,6 +61,10 @@
         .bgimg-3 {
             background-image: url("./images/Different-Strokes.jpeg");
             min-height: 400px;
+        }
+
+        .w3-center {
+            text-align: center;
         }
 
         .w3-wide {
@@ -84,7 +97,9 @@
                 href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="#home" class="w3-bar-item w3-button">HOME</a>
+            <a href="#home" class="w3-bar-item w3-button w3-padding-small">
+                <img src="images/different_strokes_logo.png" alt="Home" style="width: 70px; height: 25px;">
+            </a>
             <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
             <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
             <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
@@ -104,8 +119,9 @@
 
     <!-- First Parallax Image with Logo Text -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-        <div class="w3-display-middle" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">DIFFERENT STROKES
+        <div class="w3-display-middle" style="text-align: center;">
+            <span class="w3-center w3-wide w3-black w3-animate-opacity"
+                style="color: white; font-weight: bold; font-size: 36px;">DIFFERENT STROKES
             </span>
         </div>
     </div>
