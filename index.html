@@ -75,6 +75,16 @@
             cursor: pointer;
         }
 
+        .w3-button:hover {
+            color: inherit !important;
+            /* Use the same color as the default state */
+            background-color: inherit !important;
+            /* Use the same background color as the default state */
+            border-color: inherit !important;
+            /* Use the same border color as the default state */
+            /* Add any other properties you want to reset on hover */
+        }
+
         /* Turn off parallax scrolling for tablets and phones */
         /* @media only screen and (max-device-width: 1600px) {
 
@@ -97,12 +107,15 @@
                 href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
                 <i class="fa fa-bars"></i>
             </a>
-            <a href="#home" class="w3-bar-item w3-button w3-padding-small">
+            <a href="#home" class="w3-bar-item w3-button w3-hover-white w3-padding-small">
                 <img src="images/different_strokes_logo.png" alt="Home" style="width: 70px; height: 25px;">
             </a>
-            <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-            <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-            <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+            <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+                ABOUT</a>
+            <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>
+                PORTFOLIO</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>
+                CONTACT</a>
             <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
                 <i class="fa fa-search"></i>
             </a> -->
@@ -120,8 +133,8 @@
     <!-- First Parallax Image with Logo Text -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
         <div class="w3-display-middle" style="text-align: center;">
-            <span class="w3-center w3-wide w3-black w3-animate-opacity"
-                style="color: white; font-weight: bold; font-size: 36px;">DIFFERENT STROKES
+            <span class="w3-center w3-wide w3-black w3-animate-opacity" style="color: white; font-size: 36px;">DIFFERENT
+                STROKES
             </span>
         </div>
     </div>
