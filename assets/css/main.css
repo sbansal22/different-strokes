@@ -1549,6 +1549,7 @@ input, select, textarea {
 
 	.image {
 		display: inline-block;
+		cursor: pointer;
 	}
 
 		.image img {
@@ -1559,6 +1560,9 @@ input, select, textarea {
 		.image.fit {
 			display: block;
 			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 5px;
 		}
 
 		.image.featured {
@@ -2140,6 +2144,114 @@ input, select, textarea {
 						}
 
 				}
+
+/* Modal Background */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    padding: 25px;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    gap: 40px;
+}
+
+.modal-content img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.modal-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Align text */
+    padding-left: 20px; /* Space between image and text */
+}
+
+#modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+#modal-description {
+    white-space: pre-line;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 980px) {
+    .modal-content {
+        flex-direction: column;
+        max-width: 90%;
+        padding: 25px;
+		gap: 10px;
+    }
+    
+    .modal img {
+        max-width: 100%;
+        max-height: 50vh;
+    }
+    
+    .modal-text {
+        margin-left: 0;
+        margin-top: 15px;
+        text-align: center;
+        font-size: 1em;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .modal-content {
+        max-width: 95%;
+        padding: 15px;
+    }
+    
+    .modal img {
+        max-width: 100%;
+        max-height: 40vh;
+    }
+
+    .modal-text {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .close {
+        font-size: 1.5em;
+        top: 10px;
+        right: 15px;
+    }
+}
+
+
 
 /* Footer */
 

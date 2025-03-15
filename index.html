@@ -55,10 +55,17 @@
 								<section>
 									<div class="row">
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+											<img src="images/pic01.jpg" alt="" class="image fit" 
+												 onclick="openModal('images/pic01.jpg', 'Nights Glow', `A street adorned in luminous array,
+												 Lights like stars guide the way.
+												 Neon glows and lanterns bright,
+												 Chasing shadows from the night.
+												 Each beam a story, each glow a dream,
+												 A radiant river in the urban stream.`)">
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+											<img src="images/pic02.jpg" alt="" class="image fit"
+												 onclick="openModal('images/pic02.jpg', 'Nights Glow', 'Description for painting 2')">
 										</div>
 										<div class="col-4 col-6-medium col-12-small">
 											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
@@ -132,6 +139,19 @@
 
 			</div>
 
+		<!-- Modal Structure -->
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<img id="modal-img" src="" alt="">
+				<div class="modal-text">
+					<h2 id="modal-title"></h2>
+					<p id="modal-description"></p>
+				</div>
+			</div>
+		</div>
+		
+
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
@@ -139,6 +159,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/contact-form.js"></script>
+			<script src="assets/js/modal.js"></script>
 
 	</body>
 </html>
