@@ -156,11 +156,6 @@
 												The ethereal beauty of the heavens in delicate, 
 												translucent strokes captured forever in glass.`)">
 										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<img src="images/pic16.jpg" alt="" class="image fit"
-												 onclick="openModal('images/pic16.jpg', '', `
-												`)">
-										</div>
 									</div>
 								</section>
 							</article>
@@ -206,13 +201,14 @@
 		<!-- Modal Structure -->
 		<div id="modal" class="modal">
 			<div class="modal-content">
-				<img id="modal-img" src="" alt="">
-				<div class="modal-text">
-					<h2 id="modal-title"></h2>
-					<p id="modal-description"></p>
-				</div>
+			  <span class="modal-close" onclick="closeModal()">&times;</span>
+			  <img id="modal-img" src="" alt="Modal Image" />
+			  <div class="modal-text">
+				<h2 id="modal-title"></h2>
+				<p id="modal-description"></p>
+			  </div>
 			</div>
-		</div>
+		  </div>
 		
 
 

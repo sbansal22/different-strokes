@@ -2177,6 +2177,7 @@ input, select, textarea {
     max-width: 50%;
     height: auto;
     border-radius: 10px;
+	padding-top: 20px;
 }
 
 .modal-text {
@@ -2195,6 +2196,41 @@ input, select, textarea {
 #modal-description {
     white-space: pre-line;
 }
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        max-height: 90%;
+        overflow-y: auto;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .modal-content img {
+        max-width: 90%;
+    }
+
+    .modal-text {
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
 
 .close {
     position: absolute;
