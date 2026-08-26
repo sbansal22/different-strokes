@@ -10,7 +10,15 @@
 		$wrapper = $('#wrapper'),
 		$main = $('#main'),
 		$panels = $main.children('.panel'),
-		$nav = $('#nav'), $nav_links = $nav.children('a');
+		$nav = $('#nav'), $nav_links = $nav.find('a[href^="#"]');
+
+	function loadPanelImages($panel) {
+		$panel.find('img[data-src]').each(function() {
+			var $image = $(this);
+			$image.attr('src', $image.attr('data-src'));
+			$image.removeAttr('data-src');
+		});
+	}
 
 	// Breakpoints.
 		breakpoints({
@@ -78,6 +86,9 @@
 						.addClass('inactive')
 						.hide();
 
+				// Load images for the active panel.
+					loadPanelImages($panel);
+
 				// Activate link.
 					$link
 						.addClass('active');
@@ -134,6 +145,9 @@
 
 						// Show target panel.
 							$panel.show();
+
+						// Load images for the active panel.
+							loadPanelImages($panel);
 
 						// Set new max/min height.
 							$main

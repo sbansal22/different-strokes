@@ -1831,6 +1831,11 @@ input, select, textarea {
 		cursor: default;
 	}
 
+		#nav .nav-group {
+			position: relative;
+			display: inline-block;
+		}
+
 		#nav a {
 			position: relative;
 			display: inline-block;
@@ -1847,6 +1852,54 @@ input, select, textarea {
 			-ms-transition: opacity .25s ease-in-out;
 			transition: opacity .25s ease-in-out;
 		}
+
+		#nav .nav-dropdown {
+			position: absolute;
+			top: 3.25em;
+			left: 50%;
+			z-index: 20;
+			min-width: 11em;
+			padding: 0.4em 0;
+			background: #222222;
+			border-radius: 5px;
+			box-shadow: 0 0.35em 1em rgba(0, 0, 0, 0.25);
+			opacity: 0;
+			pointer-events: none;
+			transform: translateX(-50%) translateY(-0.25em);
+			transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+		}
+
+			#nav .nav-group:hover .nav-dropdown,
+			#nav .nav-group:focus-within .nav-dropdown {
+				opacity: 1;
+				pointer-events: auto;
+				transform: translateX(-50%) translateY(0);
+			}
+
+			#nav .nav-dropdown a {
+				display: block;
+				width: auto;
+				height: auto;
+				margin: 0;
+				padding: 0.45em 1em;
+				color: #ffffff;
+				font-size: 0.9em;
+				line-height: 1.2;
+				opacity: 0.85;
+				text-align: left;
+				white-space: nowrap;
+			}
+
+				#nav .nav-dropdown a:before,
+				#nav .nav-dropdown a:after {
+					display: none;
+				}
+
+				#nav .nav-dropdown a:hover,
+				#nav .nav-dropdown a.active {
+					opacity: 1;
+					background: #333333;
+				}
 
 			#nav a.icon:before {
 				padding-right: 0;
