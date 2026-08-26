@@ -1537,6 +1537,27 @@ input, select, textarea {
 			color: #aaa;
 		}
 
+	.work-category {
+		margin: 2.5em 0 3em 0;
+	}
+
+		.work-category h3 {
+			margin: 0 0 1em 0;
+			border-bottom: solid 1px #dddddd;
+			padding-bottom: 0.5em;
+		}
+
+	.work-subcategory {
+		margin: 0 0 2em 0;
+	}
+
+		.work-subcategory h4 {
+			margin: 0 0 1em 0;
+			color: #666666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+
 		@media screen and (max-width: 736px) {
 
 			header {
