@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <title>Page not found</title>
+</head>
+<body>
+    <p>Redirecting...</p>
+    <script>
+        const path = window.location.pathname;
+
+        if (path.endsWith('.html') && !path.startsWith('/art-pages/')) {
+            window.location.replace('/art-pages' + path);
+        }
+    </script>
+</body>
+</html>
