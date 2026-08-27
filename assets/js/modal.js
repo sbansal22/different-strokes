@@ -1,12 +1,28 @@
+let modalImageRequest = 0;
+
 function openModal(imageSrc, title, description) {
     const modal = document.getElementById("modal");
-    document.getElementById("modal").style.display = "flex";
-    document.getElementById("modal-img").src = imageSrc;
+    const modalImage = document.getElementById("modal-img");
+    const requestId = ++modalImageRequest;
+
+    modal.style.display = "flex";
+    modal.style.visibility = "visible";
+    modal.style.opacity = "1";
+    modalImage.style.visibility = "hidden";
+    modalImage.removeAttribute("src");
     document.getElementById("modal-title").textContent = title;
     document.getElementById("modal-description").textContent = description;
 
-    modal.style.visibility = "visible";
-    modal.style.opacity = "1";
+    const nextImage = new Image();
+    nextImage.onload = function () {
+        if (requestId !== modalImageRequest) {
+            return;
+        }
+
+        modalImage.src = imageSrc;
+        modalImage.style.visibility = "visible";
+    };
+    nextImage.src = imageSrc;
 }
 
 function closeModal() {
