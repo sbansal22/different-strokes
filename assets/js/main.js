@@ -15,7 +15,8 @@
 	function loadPanelImages($panel) {
 		$panel.find('img[data-src]').each(function() {
 			var $image = $(this);
-			$image.attr('src', $image.attr('data-src'));
+			var displaySrc = $image.attr('data-src').replace(/^images\//, 'images/optimized/');
+			$image.attr('src', displaySrc);
 			$image.removeAttr('data-src');
 		});
 	}
@@ -55,6 +56,30 @@
 					if (window.location.hash != href)
 						window.location.hash = href;
 
+			});
+
+		$nav.find('.nav-dropdown a')
+			.on('click', function() {
+				$(this).closest('.nav-group')
+					.addClass('menu-closed')
+					.find('.nav-dropdown')
+					.css({
+						visibility: 'hidden',
+						opacity: 0,
+						pointerEvents: 'none'
+					});
+			});
+
+		$nav.find('.nav-group')
+			.on('mouseleave', function() {
+				$(this)
+					.removeClass('menu-closed')
+					.find('.nav-dropdown')
+					.css({
+						visibility: '',
+						opacity: '',
+						pointerEvents: ''
+					});
 			});
 
 	// Panels.

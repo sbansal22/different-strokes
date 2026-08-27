@@ -1834,6 +1834,8 @@ input, select, textarea {
 		#nav .nav-group {
 			position: relative;
 			display: inline-block;
+			padding-bottom: 0.75em;
+			margin-bottom: -0.75em;
 		}
 
 		#nav a {
@@ -1874,6 +1876,11 @@ input, select, textarea {
 				opacity: 1;
 				pointer-events: auto;
 				transform: translateX(-50%) translateY(0);
+			}
+
+			#nav .nav-group.menu-closed:hover .nav-dropdown,
+			#nav .nav-group.menu-closed:focus-within .nav-dropdown {
+				display: none;
 			}
 
 			#nav .nav-dropdown a {
