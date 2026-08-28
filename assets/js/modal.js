@@ -22,6 +22,14 @@ function openModal(imageSrc, title, description) {
         modalImage.src = imageSrc;
         modalImage.style.visibility = "visible";
     };
+    nextImage.onerror = function () {
+        if (requestId !== modalImageRequest) {
+            return;
+        }
+
+        modalImage.src = imageSrc.replace(/^images\//, "images/optimized/");
+        modalImage.style.visibility = "visible";
+    };
     nextImage.src = imageSrc;
 }
 
@@ -40,9 +48,11 @@ document.getElementById("modal").addEventListener("click", function (event) {
     }
 });
 
-// Hide modal completely on page load
-window.onload = function () {
+// Hide modal without racing clicks made before the page finishes loading.
+function initializeModal() {
     const modal = document.getElementById("modal");
     modal.style.visibility = "hidden";
     modal.style.opacity = "0";
-};
+}
+
+initializeModal();
