@@ -1639,6 +1639,34 @@ input, select, textarea {
 
 /* Button */
 
+	.payment-section {
+		margin-top: 2em;
+		padding-top: 2em;
+		border-top: 1px solid #dddddd;
+	}
+
+	.payment-section header {
+		margin-bottom: 1em;
+	}
+
+	.payment-section label {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+
+	.payment-status {
+		min-height: 1.5em;
+		margin-top: 1em;
+	}
+
+	.payment-status.error {
+		color: #a33a2b;
+	}
+
+	.payment-status.success {
+		color: #28744a;
+	}
+
 	input[type="button"],
 	input[type="submit"],
 	input[type="reset"],
