@@ -1,0 +1,911 @@
+{
+  "between-day-and-night": [
+    {
+      "full": "between-day-and-night/00-bg.webp",
+      "thumb": "between-day-and-night/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1500,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "between-day-and-night/01-front.webp",
+      "thumb": "between-day-and-night/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 2000,
+      "height": 1334,
+      "source": "art-front-white-shadow.jpg"
+    },
+    {
+      "full": "between-day-and-night/02-back.webp",
+      "thumb": "between-day-and-night/02-back.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 2000,
+      "height": 1332,
+      "source": "art-back-white-shadow.jpg"
+    },
+    {
+      "full": "between-day-and-night/03-back.webp",
+      "thumb": "between-day-and-night/03-back.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-back.jpg"
+    },
+    {
+      "full": "between-day-and-night/04-back-2.webp",
+      "thumb": "between-day-and-night/04-back-2.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-back-2.jpg"
+    },
+    {
+      "full": "between-day-and-night/05-left.webp",
+      "thumb": "between-day-and-night/05-left.thumb.webp",
+      "view": "left",
+      "caption": "Left view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-left.jpg"
+    },
+    {
+      "full": "between-day-and-night/06-right.webp",
+      "thumb": "between-day-and-night/06-right.thumb.webp",
+      "view": "right",
+      "caption": "Right view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-right.jpg"
+    }
+  ],
+  "between-earth-and-sky": [],
+  "floral-falls": [
+    {
+      "full": "floral-falls/00-front.webp",
+      "thumb": "floral-falls/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1343,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "mediterranean-morning": [
+    {
+      "full": "mediterranean-morning/00-front.webp",
+      "thumb": "mediterranean-morning/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1349,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "rain-kissed-street": [
+    {
+      "full": "rain-kissed-street/00-front.webp",
+      "thumb": "rain-kissed-street/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1357,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "blooming-symphony": [
+    {
+      "full": "blooming-symphony/00-bg.webp",
+      "thumb": "blooming-symphony/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1024,
+      "height": 1536,
+      "source": "art-bg.png"
+    },
+    {
+      "full": "blooming-symphony/01-front.webp",
+      "thumb": "blooming-symphony/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1334,
+      "height": 2000,
+      "source": "art-front.jpg"
+    },
+    {
+      "full": "blooming-symphony/02-front-2.webp",
+      "thumb": "blooming-symphony/02-front-2.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1462,
+      "height": 2000,
+      "source": "art-front-2.jpg"
+    },
+    {
+      "full": "blooming-symphony/03-white.webp",
+      "thumb": "blooming-symphony/03-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 842,
+      "height": 1264,
+      "source": "art-white.png"
+    }
+  ],
+  "echoes-of-the-dunes": [
+    {
+      "full": "echoes-of-the-dunes/00-front.webp",
+      "thumb": "echoes-of-the-dunes/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 866,
+      "height": 649,
+      "source": "art-front.jpg"
+    }
+  ],
+  "floral-fragments": [
+    {
+      "full": "floral-fragments/00-bg.webp",
+      "thumb": "floral-fragments/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1988,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "floral-fragments/01-detail.webp",
+      "thumb": "floral-fragments/01-detail.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1988,
+      "height": 2000,
+      "source": "art-detail.jpg"
+    },
+    {
+      "full": "floral-fragments/02-detail-2.webp",
+      "thumb": "floral-fragments/02-detail-2.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1997,
+      "height": 2000,
+      "source": "art-detail-2.jpg"
+    },
+    {
+      "full": "floral-fragments/03-detail-3.webp",
+      "thumb": "floral-fragments/03-detail-3.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 512,
+      "height": 2000,
+      "source": "art-detail-3.jpg"
+    },
+    {
+      "full": "floral-fragments/04-detail-4.webp",
+      "thumb": "floral-fragments/04-detail-4.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1991,
+      "height": 2000,
+      "source": "art-detail-4.jpg"
+    },
+    {
+      "full": "floral-fragments/05-detail-5.webp",
+      "thumb": "floral-fragments/05-detail-5.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 495,
+      "height": 2000,
+      "source": "art-detail-5.jpg"
+    },
+    {
+      "full": "floral-fragments/06-detail-6.webp",
+      "thumb": "floral-fragments/06-detail-6.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1993,
+      "height": 2000,
+      "source": "art-detail-6.jpg"
+    },
+    {
+      "full": "floral-fragments/07-detail-7.webp",
+      "thumb": "floral-fragments/07-detail-7.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1977,
+      "height": 2000,
+      "source": "art-detail-7.jpg"
+    },
+    {
+      "full": "floral-fragments/08-detail-8.webp",
+      "thumb": "floral-fragments/08-detail-8.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1990,
+      "height": 2000,
+      "source": "art-detail-8.jpg"
+    },
+    {
+      "full": "floral-fragments/09-detail-9.webp",
+      "thumb": "floral-fragments/09-detail-9.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1969,
+      "height": 2000,
+      "source": "art-detail-9.jpg"
+    },
+    {
+      "full": "floral-fragments/10-detail-10.webp",
+      "thumb": "floral-fragments/10-detail-10.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 2000,
+      "height": 1986,
+      "source": "art-detail-10.jpg"
+    },
+    {
+      "full": "floral-fragments/11-detail-11.webp",
+      "thumb": "floral-fragments/11-detail-11.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 2000,
+      "height": 1972,
+      "source": "art-detail-11.jpg"
+    },
+    {
+      "full": "floral-fragments/12-detail-12.webp",
+      "thumb": "floral-fragments/12-detail-12.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1988,
+      "height": 2000,
+      "source": "art-detail-12.jpg"
+    }
+  ],
+  "full-circle": [
+    {
+      "full": "full-circle/00-bg.webp",
+      "thumb": "full-circle/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1200,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "full-circle/01-white.webp",
+      "thumb": "full-circle/01-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1200,
+      "height": 2000,
+      "source": "art-white-shadow.jpg"
+    }
+  ],
+  "the-divine": [
+    {
+      "full": "the-divine/00-bg.webp",
+      "thumb": "the-divine/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1332,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "the-divine/01-white.webp",
+      "thumb": "the-divine/01-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1333,
+      "height": 2000,
+      "source": "art-white-shadow.jpg"
+    },
+    {
+      "full": "the-divine/02-left.webp",
+      "thumb": "the-divine/02-left.thumb.webp",
+      "view": "left",
+      "caption": "Left view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-left.jpg"
+    },
+    {
+      "full": "the-divine/03-right.webp",
+      "thumb": "the-divine/03-right.thumb.webp",
+      "view": "right",
+      "caption": "Right view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-right.jpg"
+    }
+  ],
+  "tree-of-life": [
+    {
+      "full": "tree-of-life/00-front.webp",
+      "thumb": "tree-of-life/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1008,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "whispering-lake": [
+    {
+      "full": "whispering-lake/00-bg.webp",
+      "thumb": "whispering-lake/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1500,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "whispering-lake/01-white.webp",
+      "thumb": "whispering-lake/01-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1500,
+      "height": 2000,
+      "source": "art-white.jpg"
+    }
+  ],
+  "feathers-of-color": [
+    {
+      "full": "feathers-of-color/00-bg.webp",
+      "thumb": "feathers-of-color/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1500,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "feathers-of-color/01-white.webp",
+      "thumb": "feathers-of-color/01-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1471,
+      "height": 2000,
+      "source": "art-white-shadow.jpg"
+    },
+    {
+      "full": "feathers-of-color/02-detail.webp",
+      "thumb": "feathers-of-color/02-detail.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 2000,
+      "height": 1500,
+      "source": "art-detail.jpg"
+    }
+  ],
+  "feathers-of-paradise": [
+    {
+      "full": "feathers-of-paradise/00-plain.webp",
+      "thumb": "feathers-of-paradise/00-plain.thumb.webp",
+      "role": "plain",
+      "caption": "Full view",
+      "width": 640,
+      "height": 480,
+      "source": "images/pic07.jpg"
+    }
+  ],
+  "glass-reflections": [
+    {
+      "full": "glass-reflections/00-bg.webp",
+      "thumb": "glass-reflections/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1689,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "glass-reflections/01-front.webp",
+      "thumb": "glass-reflections/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 448,
+      "height": 602,
+      "source": "art-front.jpg"
+    },
+    {
+      "full": "glass-reflections/02-white.webp",
+      "thumb": "glass-reflections/02-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1689,
+      "height": 2000,
+      "source": "art-white.jpg"
+    },
+    {
+      "full": "glass-reflections/03-detail.webp",
+      "thumb": "glass-reflections/03-detail.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1689,
+      "height": 2000,
+      "source": "art-detail.jpg"
+    }
+  ],
+  "my-horizon": [
+    {
+      "full": "my-horizon/00-plain.webp",
+      "thumb": "my-horizon/00-plain.thumb.webp",
+      "role": "plain",
+      "caption": "Full view",
+      "width": 1280,
+      "height": 806,
+      "source": "images/pic06.jpg"
+    }
+  ],
+  "timeless-traditions": [
+    {
+      "full": "timeless-traditions/00-front.webp",
+      "thumb": "timeless-traditions/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 410,
+      "height": 547,
+      "source": "art-front.jpg"
+    }
+  ],
+  "vintage-noir": [
+    {
+      "full": "vintage-noir/00-plate-1.webp",
+      "thumb": "vintage-noir/00-plate-1.thumb.webp",
+      "view": "plate",
+      "caption": "No. 1",
+      "width": 1644,
+      "height": 1408,
+      "source": "art-plate-1.jpg"
+    },
+    {
+      "full": "vintage-noir/01-plate-2.webp",
+      "thumb": "vintage-noir/01-plate-2.thumb.webp",
+      "view": "plate",
+      "caption": "No. 2",
+      "width": 1695,
+      "height": 1434,
+      "source": "art-plate-2.jpg"
+    },
+    {
+      "full": "vintage-noir/02-plate-3.webp",
+      "thumb": "vintage-noir/02-plate-3.thumb.webp",
+      "view": "plate",
+      "caption": "No. 3",
+      "width": 1665,
+      "height": 1359,
+      "source": "art-plate-3.jpg"
+    },
+    {
+      "full": "vintage-noir/03-plate-4.webp",
+      "thumb": "vintage-noir/03-plate-4.thumb.webp",
+      "view": "plate",
+      "caption": "No. 4",
+      "width": 1598,
+      "height": 1319,
+      "source": "art-plate-4.jpg"
+    },
+    {
+      "full": "vintage-noir/04-plate-5.webp",
+      "thumb": "vintage-noir/04-plate-5.thumb.webp",
+      "view": "plate",
+      "caption": "No. 5",
+      "width": 2000,
+      "height": 1671,
+      "source": "art-plate-5.jpg"
+    }
+  ],
+  "floating-stories": [
+    {
+      "full": "floating-stories/00-front.webp",
+      "thumb": "floating-stories/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1438,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "gentle-spirit": [
+    {
+      "full": "gentle-spirit/00-front.webp",
+      "thumb": "gentle-spirit/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1429,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "whispering-plumage": [
+    {
+      "full": "whispering-plumage/00-front.webp",
+      "thumb": "whispering-plumage/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1443,
+      "height": 2000,
+      "source": "art-front.jpg"
+    }
+  ],
+  "a-gentle-touch": [
+    {
+      "full": "a-gentle-touch/00-front.webp",
+      "thumb": "a-gentle-touch/00-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1305,
+      "height": 1600,
+      "source": "art-front.jpeg"
+    }
+  ],
+  "a-blossom-ballet": [
+    {
+      "full": "a-blossom-ballet/00-plain.webp",
+      "thumb": "a-blossom-ballet/00-plain.thumb.webp",
+      "role": "plain",
+      "caption": "Full view",
+      "width": 1573,
+      "height": 1200,
+      "source": "images/pic04.jpg"
+    }
+  ],
+  "rhythm-of-color": [
+    {
+      "full": "rhythm-of-color/00-bg.webp",
+      "thumb": "rhythm-of-color/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "rhythm-of-color/01-bg-2.webp",
+      "thumb": "rhythm-of-color/01-bg-2.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-bg-2.jpg"
+    },
+    {
+      "full": "rhythm-of-color/02-white.webp",
+      "thumb": "rhythm-of-color/02-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-white-shadow.jpg"
+    },
+    {
+      "full": "rhythm-of-color/03-top.webp",
+      "thumb": "rhythm-of-color/03-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-top-shadow.jpg"
+    },
+    {
+      "full": "rhythm-of-color/04-side.webp",
+      "thumb": "rhythm-of-color/04-side.thumb.webp",
+      "view": "side",
+      "caption": "Side view",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-side.jpg"
+    }
+  ],
+  "the-core": [
+    {
+      "full": "the-core/00-bg.webp",
+      "thumb": "the-core/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1500,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "the-core/01-white.webp",
+      "thumb": "the-core/01-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-white.jpg"
+    },
+    {
+      "full": "the-core/02-back.webp",
+      "thumb": "the-core/02-back.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-back.jpg"
+    },
+    {
+      "full": "the-core/03-top.webp",
+      "thumb": "the-core/03-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 2000,
+      "height": 2000,
+      "source": "art-top.jpg"
+    },
+    {
+      "full": "the-core/04-side.webp",
+      "thumb": "the-core/04-side.thumb.webp",
+      "view": "side",
+      "caption": "Side view",
+      "width": 1500,
+      "height": 2000,
+      "source": "art-side-shadow.jpg"
+    }
+  ],
+  "the-tree": [
+    {
+      "full": "the-tree/00-bg.webp",
+      "thumb": "the-tree/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1197,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "the-tree/01-white.webp",
+      "thumb": "the-tree/01-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1197,
+      "height": 2000,
+      "source": "art-white-shadow.jpg"
+    },
+    {
+      "full": "the-tree/02-top.webp",
+      "thumb": "the-tree/02-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 1333,
+      "height": 2000,
+      "source": "art-top.jpg"
+    }
+  ],
+  "nights-glow": [
+    {
+      "full": "nights-glow/00-plain.webp",
+      "thumb": "nights-glow/00-plain.thumb.webp",
+      "role": "plain",
+      "caption": "Full view",
+      "width": 2000,
+      "height": 1551,
+      "source": "images/pic01.jpg"
+    }
+  ],
+  "the-golden-duo": [
+    {
+      "full": "the-golden-duo/00-bg-2.webp",
+      "thumb": "the-golden-duo/00-bg-2.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1797,
+      "height": 2000,
+      "source": "art-bg-2.jpg"
+    },
+    {
+      "full": "the-golden-duo/01-front.webp",
+      "thumb": "the-golden-duo/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1797,
+      "height": 2000,
+      "source": "art-front-shadow.jpg"
+    },
+    {
+      "full": "the-golden-duo/02-white.webp",
+      "thumb": "the-golden-duo/02-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1333,
+      "height": 2000,
+      "source": "art-white.jpg"
+    }
+  ],
+  "the-floating-lotus": [
+    {
+      "full": "the-floating-lotus/00-bg.webp",
+      "thumb": "the-floating-lotus/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1493,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "the-floating-lotus/01-front.webp",
+      "thumb": "the-floating-lotus/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 2000,
+      "height": 1334,
+      "source": "art-front-white-shadow.jpg"
+    },
+    {
+      "full": "the-floating-lotus/02-back.webp",
+      "thumb": "the-floating-lotus/02-back.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 2000,
+      "height": 1334,
+      "source": "art-back-white-shadow.jpg"
+    },
+    {
+      "full": "the-floating-lotus/03-top.webp",
+      "thumb": "the-floating-lotus/03-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-top-white.jpg"
+    }
+  ],
+  "the-midnight-tide": [
+    {
+      "full": "the-midnight-tide/00-bg.webp",
+      "thumb": "the-midnight-tide/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1333,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "the-midnight-tide/01-front.webp",
+      "thumb": "the-midnight-tide/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1334,
+      "height": 2000,
+      "source": "art-front-white-shadow.jpg"
+    },
+    {
+      "full": "the-midnight-tide/02-back.webp",
+      "thumb": "the-midnight-tide/02-back.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 1493,
+      "height": 2000,
+      "source": "art-back-white-shadow.jpg"
+    },
+    {
+      "full": "the-midnight-tide/03-top.webp",
+      "thumb": "the-midnight-tide/03-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-top.jpg"
+    },
+    {
+      "full": "the-midnight-tide/04-side.webp",
+      "thumb": "the-midnight-tide/04-side.thumb.webp",
+      "view": "side",
+      "caption": "Side view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-side.jpg"
+    }
+  ],
+  "the-perched-edge": [
+    {
+      "full": "the-perched-edge/00-bg.webp",
+      "thumb": "the-perched-edge/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1024,
+      "height": 1536,
+      "source": "art-bg.png"
+    },
+    {
+      "full": "the-perched-edge/01-front.webp",
+      "thumb": "the-perched-edge/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 1570,
+      "height": 767,
+      "source": "art-front.png"
+    },
+    {
+      "full": "the-perched-edge/02-white.webp",
+      "thumb": "the-perched-edge/02-white.thumb.webp",
+      "view": "white",
+      "caption": "On white",
+      "width": 1024,
+      "height": 1536,
+      "source": "art-white.jpg"
+    },
+    {
+      "full": "the-perched-edge/03-left.webp",
+      "thumb": "the-perched-edge/03-left.thumb.webp",
+      "view": "left",
+      "caption": "Left view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-left.jpg"
+    },
+    {
+      "full": "the-perched-edge/04-right.webp",
+      "thumb": "the-perched-edge/04-right.thumb.webp",
+      "view": "right",
+      "caption": "Right view",
+      "width": 1333,
+      "height": 2000,
+      "source": "art-right.jpg"
+    },
+    {
+      "full": "the-perched-edge/05-top.webp",
+      "thumb": "the-perched-edge/05-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-top.jpg"
+    },
+    {
+      "full": "the-perched-edge/06-detail.webp",
+      "thumb": "the-perched-edge/06-detail.thumb.webp",
+      "view": "detail",
+      "caption": "Detail",
+      "width": 1040,
+      "height": 1040,
+      "source": "art-detail.png"
+    }
+  ],
+  "the-summer-bloom": [
+    {
+      "full": "the-summer-bloom/00-bg.webp",
+      "thumb": "the-summer-bloom/00-bg.thumb.webp",
+      "view": "bg",
+      "caption": "In the room",
+      "width": 1333,
+      "height": 2000,
+      "source": "art-bg.jpg"
+    },
+    {
+      "full": "the-summer-bloom/01-front.webp",
+      "thumb": "the-summer-bloom/01-front.thumb.webp",
+      "view": "front",
+      "caption": "Full view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-front-white.jpg"
+    },
+    {
+      "full": "the-summer-bloom/02-back.webp",
+      "thumb": "the-summer-bloom/02-back.thumb.webp",
+      "view": "back",
+      "caption": "Back view",
+      "width": 2000,
+      "height": 1334,
+      "source": "art-back-white-shadow.jpg"
+    },
+    {
+      "full": "the-summer-bloom/03-top.webp",
+      "thumb": "the-summer-bloom/03-top.thumb.webp",
+      "view": "top",
+      "caption": "Top view",
+      "width": 2000,
+      "height": 1333,
+      "source": "art-top-white.jpg"
+    }
+  ]
+}
