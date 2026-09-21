@@ -1,19 +1,4 @@
-# Different Strokes
-
-The studio site for Simpy Bansal — www.different-strokes.in.
-
-Built with TanStack Start and prerendered to static HTML, deployed to GitHub
-Pages by `.github/workflows/deploy.yml` on every push to `main`.
-
-Artwork content is generated from the description documents in
-`content/artworks/` and the photograph archive. See **`scripts/README.md`** for
-how to add or change a piece — that is the file you want.
-
-```
-npm install        # or bun install
-npm run dev        # preview
-npm run content    # rebuild artwork data after editing a document or photo
-```
+Website for Different Strokes portfolio
 
 ## Local checkout server
 
