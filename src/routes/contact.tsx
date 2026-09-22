@@ -4,6 +4,7 @@ import { z } from "zod";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { site, canonical } from "@/data/site";
+import { PaymentForm } from "@/components/payment-form";
 
 const searchSchema = z.object({
   work: z.string().optional(),
@@ -134,6 +135,8 @@ function Contact() {
                   </a>
                   .
                 </p>
+
+                <PaymentForm />
               </div>
             </div>
 

@@ -34,7 +34,14 @@ export default defineConfig({
       // crawlLinks follows <a href> too, so a linked PDF gets fetched and its
       // body written back out as a UTF-8 string, corrupting the binary. Skip
       // anything that is a file rather than a page.
+      //
+      // Query strings are skipped as well: a static host ignores them when
+      // resolving a file, so every /contact?work=... prerenders to the same
+      // contact/index.html and the last one wins, leaving the plain /contact
+      // page pre-filled with whichever work crawled last. The form fills
+      // itself in from the URL on the client anyway.
       filter: ({ path }: { path: string }) =>
+        !path.includes("?") &&
         !/\.(pdf|zip|docx?|xlsx?|pptx?|png|jpe?g|webp|gif|svg|ico|mp4|mov)$/i.test(
           path,
         ),
