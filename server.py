@@ -34,7 +34,9 @@ client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 
 class RequestHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=str(ROOT), **kwargs)
+        # Serve only the built site. Serving ROOT would expose the whole
+        # repository over HTTP, including .git and the source.
+        super().__init__(*args, directory=str(ROOT / "dist" / "client"), **kwargs)
 
     def send_json(self, status, payload):
         body = json.dumps(payload).encode("utf-8")

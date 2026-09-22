@@ -1,4 +1,27 @@
-Website for Different Strokes portfolio
+# Different Strokes
+
+The studio site for Simpy Bansal — www.different-strokes.in
+
+## How this repo is laid out
+
+    src/  content/  scripts/     the source — how the site is built
+    dist/client/                 the actual website, and the only thing served
+    server.py                    the server Render runs
+
+`server.py` serves **`dist/client` only**. The source, the content documents
+and `.git` are never reachable over the web.
+
+Render does not build the site. **You build it here and commit the result**, so
+after changing anything run:
+
+    npm run content      # only if you changed a description or a photograph
+    npm run build
+    git add -A && git commit && git push
+
+`npm run build` writes `dist/client`, and pushing it is what puts it live.
+
+See **`scripts/README.md`** for adding or changing an artwork — that is the
+file you want day to day.
 
 ## Local checkout server
 
