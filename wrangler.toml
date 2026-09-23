@@ -1,10 +1,17 @@
 # Cloudflare Pages configuration.
 #
-# The site is prerendered to plain HTML and the built output is committed, so
-# Pages has nothing to build — it uploads dist/client as-is. The three payment
-# endpoints live in functions/api/ and are wired up by Pages' file-based
-# routing; public/_routes.json keeps every other request on the static path,
-# where requests are free and unmetered.
+# Cloudflare builds the site itself on every push, with `npm run build:static`
+# writing into the directory named below. The built copy is still committed to
+# the repo as well, but only because Render serves it directly and is kept as
+# a fallback — Cloudflare ignores it and builds fresh.
+#
+# The three payment endpoints live in functions/api/ and are wired up by Pages'
+# file-based routing. public/_routes.json keeps every other request on the
+# static path, where requests are free and unmetered.
+#
+# RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET are deliberately NOT here. This file
+# is committed; secrets belong in the dashboard under Settings > Variables and
+# Secrets, added with Encrypt turned on.
 name = "different-strokes"
 compatibility_date = "2026-09-22"
 pages_build_output_dir = "dist/client"
