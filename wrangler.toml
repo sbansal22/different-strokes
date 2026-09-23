@@ -1,0 +1,10 @@
+# Cloudflare Pages configuration.
+#
+# The site is prerendered to plain HTML and the built output is committed, so
+# Pages has nothing to build — it uploads dist/client as-is. The three payment
+# endpoints live in functions/api/ and are wired up by Pages' file-based
+# routing; public/_routes.json keeps every other request on the static path,
+# where requests are free and unmetered.
+name = "different-strokes"
+compatibility_date = "2026-09-22"
+pages_build_output_dir = "dist/client"

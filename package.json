@@ -10,6 +10,10 @@
     "preview": "vite preview",
     "content": "python3 scripts/sync.py",
     "content:force": "python3 scripts/sync.py --force",
+    "test": "npm run test:signature && npm run test:endpoints",
+    "test:signature": "node scripts/test_signature.mjs",
+    "test:endpoints": "node scripts/test_endpoints.mjs",
+    "pages:dev": "wrangler pages dev",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -88,6 +92,7 @@
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
-    "vite": "8.1.5"
+    "vite": "8.1.5",
+    "wrangler": "^4.136.3"
   }
 }
