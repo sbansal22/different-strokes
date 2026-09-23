@@ -45,18 +45,53 @@ To run the whole site locally, exactly as Cloudflare will:
     npm run build
     npm run pages:dev
 
-## Setting up the Pages project, the first time
+## Who has to be involved
 
-1. In the Cloudflare dashboard, go to **Workers & Pages** and create a new
-   Pages project connected to this GitHub repo.
-2. Framework preset **None**, build command **empty**, output directory
-   **`dist/client`**. There is nothing to build — the built site is committed,
-   which is also what keeps Render working as a fallback.
-3. Under **Settings → Environment variables**, add `RAZORPAY_KEY_ID` and
-   `RAZORPAY_KEY_SECRET` for Production. Mark the secret as **encrypt**. These
-   are the same two values Render already has; copy them from there rather than
-   from any file.
-4. Deploy. You get an address ending in `.pages.dev`.
+Two things are not in this repo's control, and both sit with Sparsh:
+
+- **The GitHub repository.** Connecting Cloudflare Pages to it needs whoever
+  owns the repo to authorise Cloudflare's GitHub app. A collaborator cannot do
+  this.
+- **The domain.** `different-strokes.in` is a root domain, so Cloudflare has to
+  run its DNS, which means changing the nameservers at the registrar. That is
+  the registrar account holder's job.
+
+Because the domain needs him anyway, the Git route costs almost nothing extra
+over the alternative below, and is the better setup.
+
+## Two ways to create the project
+
+**Git integration (preferred).** Cloudflare rebuilds the site on every push.
+Nothing has to be built by hand and the committed copy can never drift.
+Requires the repo authorisation above.
+
+In the Cloudflare dashboard: Workers & Pages, Create, Pages, Connect to Git,
+then pick the repository. Build settings are framework preset None, build
+command `npm run build:static`, output directory `dist/client`, root directory
+empty.
+
+**Direct upload (fallback).** Build on a laptop and push the result up with
+`npx wrangler pages deploy dist/client`, run from the repo root so the
+`functions/` directory goes with it. Needs no repo access from anyone.
+
+Be careful with this one: Cloudflare does not allow a direct-upload project to
+be converted to Git integration later. Switching means a new project, a new
+`.pages.dev` address and pointing the domain again. It is fine for a throwaway
+project used to prove the site works; think twice before the real one is
+created this way.
+
+## The Razorpay keys
+
+Whichever route, the two keys go in the dashboard under Settings, Variables and
+Secrets, for the Production environment: `RAZORPAY_KEY_ID` and
+`RAZORPAY_KEY_SECRET`, with Encrypt turned on for the secret.
+
+Copy them from Render, not from Razorpay. Razorpay shows the key secret once,
+at the moment it is created, and never again — Render holds the working copy.
+Putting them in Cloudflare does not remove them from Render; both can run on
+the same pair, which is what makes the rollback real.
+
+Use the **test** pair first. Test and live are separate pairs in Razorpay.
 
 ## Test on .pages.dev before touching the domain
 
