@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { site, artistPortrait, studioHero, canonical } from "@/data/site";
+import { site, artistPortrait, canonical } from "@/data/site";
+import { getArtwork } from "@/data/artworks";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -45,6 +46,9 @@ const chapters = [
 ];
 
 function About() {
+  // The piece shown beside the commissions note. Swap the slug to change it.
+  const commissionPiece = getArtwork("the-summer-bloom");
+
   return (
     <div className="min-h-screen bg-paper">
       <SiteHeader />
@@ -155,14 +159,16 @@ function About() {
         <section className="mx-auto max-w-6xl px-6 pb-20 sm:px-10 sm:pb-28">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
-              <img
-                src={studioHero}
-                alt="Work by Simpy Bansal hanging above a console in a lived-in room"
-                loading="lazy"
-                width={1988}
-                height={2000}
-                className="aspect-4/3 w-full rounded-sm object-cover outline-1 -outline-offset-1 outline-ink/5"
-              />
+              {commissionPiece && (
+                <img
+                  src={commissionPiece.images[0]!.src}
+                  alt={commissionPiece.images[0]!.alt}
+                  loading="lazy"
+                  width={commissionPiece.images[0]!.width}
+                  height={commissionPiece.images[0]!.height}
+                  className="h-auto w-full rounded-sm outline-1 -outline-offset-1 outline-ink/5"
+                />
+              )}
             </div>
             <div className="lg:col-span-5">
               <h2 className="max-w-[24ch] text-3xl leading-tight text-balance text-ink sm:text-4xl">

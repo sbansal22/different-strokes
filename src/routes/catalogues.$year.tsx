@@ -148,7 +148,7 @@ function CataloguePage() {
                           loading="lazy"
                           width={1024}
                           height={1280}
-                          className="aspect-4/5 w-full object-cover"
+                          className="aspect-4/5 w-full object-contain"
                         />
                       </Link>
                       <div>

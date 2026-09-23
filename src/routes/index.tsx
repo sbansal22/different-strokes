@@ -8,8 +8,8 @@ import { site, studioHero, artistPortrait, canonical } from "@/data/site";
 // The three pieces that lead the homepage, in order, and the one given the
 // larger in-focus treatment below them. Change these slugs to reshuffle the
 // front page — no other edit needed.
-const FEATURED = ["the-floating-lotus", "blooming-symphony", "the-core"] as const;
-const SPOTLIGHT = "blooming-symphony";
+const FEATURED = ["blooming-symphony", "feathers-of-color", "the-golden-duo", "the-tree"] as const;
+const SPOTLIGHT = "between-day-and-night";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -80,12 +80,18 @@ function Home() {
                 </div>
               </div>
               <div className="art-fade-2 order-1 lg:order-2 lg:col-span-7">
+                {/*
+                  width and height must match the real pixel size of
+                  studio-hero.webp. They only reserve space while the image
+                  loads, so a wrong value makes the page jump rather than
+                  breaking it — but check them if you swap the photo.
+                */}
                 <img
                   src={studioHero}
-                  alt="Work by Simpy Bansal hanging above a console in a lived-in room"
-                  width={1988}
+                  alt="A console painted with lotuses by Simpy Bansal, in a lived-in room"
+                  width={1493}
                   height={2000}
-                  className="aspect-4/3 w-full rounded-sm object-cover"
+                  className="h-auto w-full rounded-sm"
                 />
                 <p className="mt-3 text-xs text-stone/80">
                   Work finds its place in the room it lives in
@@ -113,7 +119,15 @@ function Home() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+            {/*
+              Three pieces sit in one row; four look better as a 2x2 than as a
+              row of three with one stranded underneath.
+            */}
+            <div
+              className={`grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-2 ${
+                featured.length % 3 === 0 ? "lg:grid-cols-3" : ""
+              }`}
+            >
               {featured.map((artwork, i) => (
                 <ArtworkCard
                   key={artwork.slug}
@@ -142,7 +156,7 @@ function Home() {
                     loading="lazy"
                     width={spotlight.images[0]!.width}
                     height={spotlight.images[0]!.height}
-                    className="aspect-5/4 w-full rounded-sm object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
+                    className="h-auto w-full rounded-sm transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
                   />
                 </Link>
                 {spotlight.images.length > 1 && (
@@ -161,7 +175,7 @@ function Home() {
                           loading="lazy"
                           width={image.width}
                           height={image.height}
-                          className="aspect-square w-full rounded-xs object-contain opacity-90 transition-opacity hover:opacity-100"
+                          className="aspect-4/5 w-full rounded-xs object-contain opacity-90 transition-opacity hover:opacity-100"
                         />
                       </Link>
                     ))}

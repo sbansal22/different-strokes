@@ -1,1 +1,0 @@
-var e=`/assets/artist-portrait-CNJNvcku.webp`,t=`/assets/00-bg-B9lA-oUe.webp`;export{e as n,t};

@@ -196,7 +196,7 @@ function WorkDetail() {
                         loading="lazy"
                         width={image.width}
                         height={image.height}
-                        className="aspect-square w-full object-cover"
+                        className="aspect-4/5 w-full object-contain"
                       />
                     </button>
                   ))}

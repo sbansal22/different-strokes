@@ -1,0 +1,1 @@
+var e=`/assets/artist-portrait-CNJNvcku.webp`;export{e as t};
