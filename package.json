@@ -12,13 +12,14 @@
     "content": "python3 scripts/sync.py",
     "content:force": "python3 scripts/sync.py --force",
     "icons": "python3 scripts/build_favicon.py",
-    "test": "npm run test:signature && npm run test:endpoints",
+    "test": "npm run test:signature && npm run test:endpoints && npm run test:enquiry",
     "test:signature": "node scripts/test_signature.mjs",
     "test:endpoints": "node scripts/test_endpoints.mjs",
     "pages:dev": "npx wrangler pages dev",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "docs:format": "python3 scripts/format_documents.py"
+    "docs:format": "python3 scripts/format_documents.py",
+    "test:enquiry": "node scripts/test_enquiry.mjs"
   },
   "overrides": {
     "rolldown": "1.2.1"

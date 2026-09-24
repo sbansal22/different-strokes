@@ -15,3 +15,10 @@
 name = "different-strokes"
 compatibility_date = "2026-09-22"
 pages_build_output_dir = "dist/client"
+
+# Where enquiries go, and who they are sent as. Not secret, so they live here
+# rather than in the dashboard. RESEND_API_KEY is a secret and does not.
+# ENQUIRY_FROM must be on a domain verified in Resend.
+[vars]
+ENQUIRY_TO = "differentstrokes2001@gmail.com"
+ENQUIRY_FROM = "Different Strokes <enquiries@different-strokes.in>"

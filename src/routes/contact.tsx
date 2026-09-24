@@ -34,7 +34,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 // The studio's existing Formspree form, carried over from the previous site.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xldjddjl";
+// Our own endpoint, in functions/api/enquiry.js. Was Formspree, whose free
+// plan stopped at 50 enquiries a month and sat between a buyer and the reply.
+const ENQUIRY_ENDPOINT = "/api/enquiry";
 
 type FormStatus = "idle" | "sending" | "error";
 
@@ -49,13 +51,12 @@ function Contact() {
     setStatus("sending");
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(ENQUIRY_ENDPOINT, {
         method: "POST",
         body: new FormData(form),
-        headers: { Accept: "application/json" },
       });
 
-      if (!response.ok) throw new Error(`Formspree error ${response.status}`);
+      if (!response.ok) throw new Error(`Enquiry failed: ${response.status}`);
 
       setSent(true);
       setStatus("idle");
@@ -157,15 +158,6 @@ function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-5">
-                  <input
-                    type="hidden"
-                    name="_subject"
-                    value={
-                      work
-                        ? `Enquiry about "${work}" — ${site.domain}`
-                        : `Enquiry from ${site.domain}`
-                    }
-                  />
                   {work && <input type="hidden" name="work" value={work} />}
                   {/* Honeypot — invisible to humans, catches spam bots */}
                   <input
