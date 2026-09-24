@@ -45,53 +45,50 @@ To run the whole site locally, exactly as Cloudflare will:
     npm run build
     npm run pages:dev
 
-## Who has to be involved
+## Where this got to
 
-Two things are not in this repo's control, and both sit with Sparsh:
+The Pages project exists and builds from this repo on every push to `main`:
+build command `npm run build:static`, output `dist/client`. The Razorpay key
+id and secret are stored as encrypted secrets in the Cloudflare dashboard,
+not here.
 
-- **The GitHub repository.** Connecting Cloudflare Pages to it needs whoever
-  owns the repo to authorise Cloudflare's GitHub app. A collaborator cannot do
-  this.
-- **The domain.** `different-strokes.in` is a root domain, so Cloudflare has to
-  run its DNS, which means changing the nameservers at the registrar. That is
-  the registrar account holder's job.
+Verified on `different-strokes.pages.dev`: every page serves, unknown URLs
+404, and all three payment endpoints answer correctly against the live
+Razorpay account — `/api/config` returns the key id, `/api/create-order`
+creates a real order, `/api/verify-payment` rejects a forged signature. The
+one thing not yet proven is a completed payment, because a card attempt
+failed inside Razorpay at the tokenisation step, which is suspected to be
+because `.pages.dev` is not the registered domain.
 
-Because the domain needs him anyway, the Git route costs almost nothing extra
-over the alternative below, and is the better setup.
+The domain has been added to Cloudflare and its nameservers changed at
+GoDaddy from `ns69`/`ns70.domaincontrol.com` to `adrian.ns.cloudflare.com`
+and `matt.ns.cloudflare.com`. GoDaddy still owns the registration; only DNS
+moved. What remains is attaching the domain to the Pages project, then
+retrying a card payment on the real domain.
 
-## Two ways to create the project
+## What the domain carried
 
-**Git integration (preferred).** Cloudflare rebuilds the site on every push.
-Nothing has to be built by hand and the committed copy can never drift.
-Requires the repo authorisation above.
-
-In the Cloudflare dashboard: Workers & Pages, Create, Pages, Connect to Git,
-then pick the repository. Build settings are framework preset None, build
-command `npm run build:static`, output directory `dist/client`, root directory
-empty.
-
-**Direct upload (fallback).** Build on a laptop and push the result up with
-`npx wrangler pages deploy dist/client`, run from the repo root so the
-`functions/` directory goes with it. Needs no repo access from anyone.
-
-Be careful with this one: Cloudflare does not allow a direct-upload project to
-be converted to Git integration later. Switching means a new project, a new
-`.pages.dev` address and pointing the domain again. It is fine for a throwaway
-project used to prove the site works; think twice before the real one is
-created this way.
+Worth knowing if this ever has to be undone. Before the move,
+`different-strokes.in` had exactly three records: an A record on the apex to
+`216.24.57.1` (Render), a CNAME on `www` to
+`different-strokes-um3k.onrender.com`, and a TXT record
+`v=spf1 include:_spf.google.com ~all`. No MX records and no DMARC, so no
+email depends on this domain. Cloudflare imported all three.
 
 ## The Razorpay keys
 
-Whichever route, the two keys go in the dashboard under Settings, Variables and
-Secrets, for the Production environment: `RAZORPAY_KEY_ID` and
-`RAZORPAY_KEY_SECRET`, with Encrypt turned on for the secret.
+The two keys go in the Cloudflare dashboard under Settings, Variables and
+Secrets, as Secrets with Encrypt turned on — `RAZORPAY_KEY_ID` and
+`RAZORPAY_KEY_SECRET`. Because this repo has a wrangler.toml, Cloudflare will
+only accept secrets there, not plain variables, which suits us.
 
-Copy them from Render, not from Razorpay. Razorpay shows the key secret once,
-at the moment it is created, and never again — Render holds the working copy.
-Putting them in Cloudflare does not remove them from Render; both can run on
-the same pair, which is what makes the rollback real.
+Copy them from Render rather than Razorpay: Razorpay shows the key secret
+once, at creation, and never again. Putting them in Cloudflare does not
+remove them from Render, so both can run at once — which is what keeps the
+rollback real.
 
-Use the **test** pair first. Test and live are separate pairs in Razorpay.
+Secrets only reach the site on a *new* deployment. After adding or changing
+them, redeploy from Deployments, Manage deployment, Retry deployment.
 
 ## Test on .pages.dev before touching the domain
 
@@ -105,20 +102,21 @@ Once that works, swap the environment variables to the live keys and redeploy.
 
 ## Moving the domain
 
-`different-strokes.in` is a root domain, so Cloudflare has to run its DNS.
-This is the only step that can take the site down if it goes wrong, so do it
-deliberately, and not late at night.
+`different-strokes.in` is a root domain, so Cloudflare has to answer its DNS.
+GoDaddy can point `www` anywhere by name, but a root domain can only be given
+a fixed IP address, and Cloudflare Pages does not have one to give — the site
+is served from whichever of their locations is nearest the visitor. Only
+Cloudflare's own DNS can express that, which is why the nameservers move.
+The registration stays at GoDaddy.
 
-1. Add `different-strokes.in` as a site in Cloudflare. It will read the
-   existing DNS records from your registrar and show you a list.
-2. **Check that list before continuing.** Any MX records for email on this
-   domain have to come across too, or mail stops arriving. If the list looks
-   short or is missing something you recognise, stop and compare it against
-   the registrar before going further.
-3. Change the nameservers at the registrar to the two Cloudflare gives you.
-   This takes anywhere from a few minutes to a few hours to take effect.
-4. In the Pages project, under **Custom domains**, add `different-strokes.in`
-   and `www.different-strokes.in`.
+Before switching nameservers, check DNSSEC is off at the registrar. If it is
+on and the nameservers change, the domain stops resolving entirely. That is
+the one way this step genuinely breaks things.
+
+The switch itself is invisible, because Cloudflare imported the records still
+pointing at Render. The cutover is the next step: in the Pages project, under
+Custom domains, add `different-strokes.in` and `www.different-strokes.in`.
+That replaces the two Render records and takes effect in seconds.
 
 ## If something goes wrong
 
