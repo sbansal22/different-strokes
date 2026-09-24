@@ -363,6 +363,17 @@ def main() -> int:
             skipped += 1
             if archive and folder:
                 missing.append(folder)
+            # With no originals to rebuild from, the committed images are the
+            # source. If one has been deleted, drop it from the list: the site
+            # refuses to build while it names an image that is not there, so
+            # leaving it listed would take the whole site down, not one photo.
+            listed = index.get(slug, [])
+            kept = [e for e in listed
+                    if (out_root / e["full"]).exists() and (out_root / e["thumb"]).exists()]
+            if len(kept) != len(listed):
+                index[slug] = kept
+                print(f"  {slug}: {len(listed) - len(kept)} photo(s) taken off the page "
+                      f"— their files were deleted", file=sys.stderr)
             continue
 
         entries = []

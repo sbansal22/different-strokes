@@ -36,10 +36,13 @@ Cloudflare rebuilds the live site on its own within a couple of minutes.
 | --- | --- |
 | Change a description, dimensions, title, year, availability | Edit the `Description.docx` in your folder, run `npm run content -- --source <folder>` |
 | Replace, add or remove a photograph | Change the files in your folder, run `npm run content -- --source <folder>` |
+| Remove a photograph from a piece with no folder of its own* | Delete it from `src/assets/works/<slug>/`, then run `npm run content` — the page drops it |
 | Add a new piece | `python3 scripts/add_artwork.py <folder>`, then `npm run content` |
 | Add a catalogue | `python3 scripts/compress_catalogue.py <pdf> public/catalogues/<name>.pdf`, then add the year to `src/data/catalogues.ts` |
 | See what is still missing | Read `content/GAPS.md` — rewritten every run |
 | Preview it | `npm run dev` |
+
+\* Five pieces came from the old site and have no originals: A Blossom Ballet, Feathers of Paradise, My Horizon, Night's Glow and The Perched Edge. For those, the images in `src/assets/works/` are all there is, so that is where you edit them. Always run the command after deleting one — the site refuses to build while it still lists a photo that is gone.
 
 ---
 
