@@ -1,6 +1,6 @@
 # Content gaps
 
-19 of 32 works need something before they are complete.
+16 of 32 works need something before they are complete.
 Everything else is ready to publish.
 
 Edit the piece's `Description.docx` in `content/artworks/<slug>/`, then run
@@ -8,23 +8,20 @@ Edit the piece's `Description.docx` in `content/artworks/<slug>/`, then run
 
 | Work | Category | Missing |
 | --- | --- | --- |
-| A Gentle Touch | Canvas | dimensions, material, long description, one-liner, sold/available |
-| Floral Falls | Canvas | dimensions, material, long description, one-liner |
-| Mediterranean Morning | Canvas | dimensions, material, long description, one-liner |
+| Floral Falls | Canvas | long description, one-liner |
+| Mediterranean Morning | Canvas | long description, one-liner |
 | Night's Glow | Canvas | dimensions, material, long description, one-liner |
-| Rain Kissed Street | Canvas | dimensions, material, long description, one-liner |
+| Rain Kissed Street | Canvas | long description, one-liner |
 | Blooming Symphony | Ceramic | one-liner |
-| Echoes of the Dunes | Ceramic | dimensions, material, one-liner |
-| Floral Fragments | Ceramic | dimensions, material, one-liner |
-| Tree of Life | Ceramic | dimensions, material, long description, one-liner |
+| Echoes of the Dunes | Ceramic | one-liner |
+| Floral Fragments | Ceramic | dimensions, one-liner |
+| Tree of Life | Ceramic | long description, one-liner |
 | Feathers of Paradise | Glass | dimensions, material, long description, one-liner |
-| Glass Reflections | Glass | sold/available |
 | My Horizon | Glass | dimensions, material, long description, one-liner |
-| Timeless Traditions | Glass | dimensions, material, long description, one-liner |
-| Floating Stories | Soft Pastel | dimensions, material, one-liner |
-| Gentle Spirit | Soft Pastel | dimensions, material, long description, one-liner |
-| Whispering Plumage | Soft Pastel | dimensions, material, one-liner |
-| Between Earth & Sky | Console | dimensions, material, photography, sold/available |
+| Timeless Traditions | Glass | long description, one-liner |
+| Floating Stories | Soft Pastel | one-liner |
+| Gentle Spirit | Soft Pastel | long description, one-liner |
+| Between Earth & Sky | Console | photography |
 | The Perched Edge | Console | dimensions, one-liner |
 | A Blossom Ballet | Sculpture | dimensions, material, long description, one-liner |
 
@@ -33,12 +30,14 @@ Edit the piece's `Description.docx` in `content/artworks/<slug>/`, then run
 These works share identical dimensions *and* material, which can
 happen when a description is copied from another piece.
 
+- Floral Falls, Mediterranean Morning, Rain Kissed Street — all recorded as 24” width × 36” height × 1” depth, Acrylic painting on canvas
 - Full Circle, The Divine, Whispering Lake — all recorded as 41” width × 53” height × 3” depth, 3D Ceramic painting made on wood and framed in a wooden frame
-- Glass Reflections, Vintage Noir - The Collection — all recorded as 16” L × 19” H × 1” W, Enamel on glass in a wooden frame
+- Floating Stories, Gentle Spirit, Whispering Plumage — all recorded as 17.5” width × 24.5” height × 1” depth, Soft Pastel on Paper in a wooden frame
+- Between Earth & Sky, The Floating Lotus — all recorded as 48” width × 37” height × 18” depth, Acrylic painting on canvas with a wooden base in the form of functional art
 
 ## Years not recorded
 
-32 of 32 works give no year. Add a `Year` line to
+5 of 32 works give no year. Add a `Year` line to
 any Description.docx and it will appear on the piece's page.
 
 
@@ -46,49 +45,15 @@ any Description.docx and it will appear on the piece's page.
 
 One line per work. Dimensions as width x height x depth in inches.
 
-- **A Gentle Touch**
-    - Dimensions: 
-    - Material: 
-- **Floral Falls**
-    - Dimensions: 
-    - Material: 
-- **Mediterranean Morning**
-    - Dimensions: 
-    - Material: 
 - **Night's Glow**
-    - Dimensions: 
-    - Material: 
-- **Rain Kissed Street**
-    - Dimensions: 
-    - Material: 
-- **Echoes of the Dunes**
     - Dimensions: 
     - Material: 
 - **Floral Fragments**
     - Dimensions: 
-    - Material: 
-- **Tree of Life**
-    - Dimensions: 
-    - Material: 
 - **Feathers of Paradise**
     - Dimensions: 
     - Material: 
 - **My Horizon**
-    - Dimensions: 
-    - Material: 
-- **Timeless Traditions**
-    - Dimensions: 
-    - Material: 
-- **Floating Stories**
-    - Dimensions: 
-    - Material: 
-- **Gentle Spirit**
-    - Dimensions: 
-    - Material: 
-- **Whispering Plumage**
-    - Dimensions: 
-    - Material: 
-- **Between Earth & Sky**
     - Dimensions: 
     - Material: 
 - **The Perched Edge**
