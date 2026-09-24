@@ -3,12 +3,30 @@
 Everything on the site is **generated**. You never edit `src/data/artworks.ts`
 or anything under `src/assets/` — they are rebuilt from scratch on every run.
 
-You edit two kinds of thing: a Word document per piece, and photographs.
-Then you run one command.
+Your work lives in one folder — a subfolder per piece, holding its
+photographs and its `Description.docx`, side by side. Edit it there, then point
+one command at it:
 
 ```
-npm run content
+npm run content -- --source ~/Downloads
 ```
+
+That reads your folder and rebuilds the site from it. **It never writes to
+your folder** — `--source` is only ever read. The folder can be anywhere; the
+subfolders just need to be named after the piece (`the-tree`, `vintage-noir`).
+
+The repo keeps its own copy of each description, because Cloudflare builds the
+site from GitHub and cannot see your laptop. That copy is refreshed from your
+folder every time you run the command, so you never edit it directly.
+
+Then preview it, and publish it:
+
+```
+npm run dev
+git add -A && git commit -m "Update artwork" && git push
+```
+
+Cloudflare rebuilds the live site on its own within a couple of minutes.
 
 ---
 
@@ -16,8 +34,8 @@ npm run content
 
 | I want to | Do this |
 | --- | --- |
-| Change a description, dimensions, title, year, availability | Edit `content/artworks/<slug>/Description.docx`, run `npm run content` |
-| Replace, add or remove a photograph | Edit the files in `<archive>/<Category>/<slug>/`, run `npm run content` |
+| Change a description, dimensions, title, year, availability | Edit the `Description.docx` in your folder, run `npm run content -- --source <folder>` |
+| Replace, add or remove a photograph | Change the files in your folder, run `npm run content -- --source <folder>` |
 | Add a new piece | `python3 scripts/add_artwork.py <folder>`, then `npm run content` |
 | Add a catalogue | `python3 scripts/compress_catalogue.py <pdf> public/catalogues/<name>.pdf`, then add the year to `src/data/catalogues.ts` |
 | See what is still missing | Read `content/GAPS.md` — rewritten every run |
@@ -29,7 +47,7 @@ npm run content
 
 | What | Where | In git? |
 | --- | --- | --- |
-| **Everything written about a piece** | `content/artworks/<slug>/Description.docx` | yes, 344 KB |
+| **Everything written about a piece** | the `Description.docx` in your folder — copied into `content/artworks/` on each run | yes, as a copy |
 | The images the site serves | `src/assets/works/` | yes, 35 MB |
 | **Original photographs** | the archive, a folder on disk | **no, 811 MB** |
 | A template to start a new piece | `content/_new-artwork-template/` | yes |
@@ -226,13 +244,13 @@ artwork slugs and the plate listing appears on the page.
 | Script | Does | Writes |
 | --- | --- | --- |
 | `sync.py` | runs all seven below, in order | — |
+| `pull_documents.py` | copies each description in from `--source`; never writes to it | `content/artworks/` |
 | `extract_content.py` | reads every `Description.docx` | `content/manifest.json`, `content/GAPS.md` |
 | `build_images.py` | originals → WebP; skips any piece whose archive folder is not attached | `src/assets/works/` |
 | `build_catalogue_covers.py` | page 1 of each catalogue PDF | `src/assets/catalogues/` |
 | `gen_artworks.py` | manifest → TypeScript | `src/data/artworks.ts` |
 | `build_share_images.py` | covers → link-preview cards | `public/og/` |
 | `build_sitemap.py` | everything → sitemap | `public/sitemap.xml` |
-| `mirror_documents.py` | refreshes the archive's copy of each document | the archive |
 | `add_artwork.py` | imports a new piece from a folder | repo and archive |
 | `compress_catalogue.py` | shrinks a print PDF for the web | wherever you point it |
 | `normalise_archive.py` | renames an archive into the convention | the archive |
