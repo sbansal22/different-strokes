@@ -47,24 +47,27 @@ To run the whole site locally, exactly as Cloudflare will:
 
 ## Where this got to
 
-The Pages project exists and builds from this repo on every push to `main`:
-build command `npm run build:static`, output `dist/client`. The Razorpay key
-id and secret are stored as encrypted secrets in the Cloudflare dashboard,
-not here.
+Done. `different-strokes.in` and `www.different-strokes.in` are both served by
+Cloudflare Pages, which builds from this repo on every push to `main`: build
+command `npm run build:static`, output `dist/client`. The Razorpay key id and
+secret are encrypted secrets in the Cloudflare dashboard, not in this repo.
 
-Verified on `different-strokes.pages.dev`: every page serves, unknown URLs
-404, and all three payment endpoints answer correctly against the live
-Razorpay account — `/api/config` returns the key id, `/api/create-order`
-creates a real order, `/api/verify-payment` rejects a forged signature. The
-one thing not yet proven is a completed payment, because a card attempt
-failed inside Razorpay at the tokenisation step, which is suspected to be
-because `.pages.dev` is not the registered domain.
+The nameservers moved from GoDaddy to `adrian.ns.cloudflare.com` and
+`matt.ns.cloudflare.com`. GoDaddy still owns and renews the registration. The
+apex is a CNAME to `different-strokes.pages.dev`, which only works because
+Cloudflare answers the DNS — that is the whole reason the nameservers had to
+move, and the root A record to Render's fixed IP is gone.
 
-The domain has been added to Cloudflare and its nameservers changed at
-GoDaddy from `ns69`/`ns70.domaincontrol.com` to `adrian.ns.cloudflare.com`
-and `matt.ns.cloudflare.com`. GoDaddy still owns the registration; only DNS
-moved. What remains is attaching the domain to the Pages project, then
-retrying a card payment on the real domain.
+Verified after the cutover: every page 200s on both hostnames, unknown URLs
+404, and `/api/config` answers with the key id. A completed card payment on
+the real domain was still outstanding at the time of writing — a card attempt
+on `.pages.dev` had failed inside Razorpay at the tokenisation step, which is
+expected to stop happening now the registered domain is in front.
+
+Render has deliberately been left running as a fallback. Going back is editing
+the two DNS records in Cloudflare — the apex to an A record at `216.24.57.1`
+and `www` to a CNAME at `different-strokes-um3k.onrender.com` — not another
+nameserver change. Leave it in place for a few weeks.
 
 ## What the domain carried
 
