@@ -13,16 +13,21 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 import re
 from pathlib import Path
 
 ARTIST = "Simpy Bansal"
 
+# The order here is the order everywhere: the filter tabs on the works page,
+# the sections of the full collection, and the sequence of pieces within it.
+# Functional art leads because it is the studio's newest and most distinctive
+# work.
 CATEGORIES = [
-    ("paintings", "Paintings",
-     "Canvas, ceramic, stained glass and soft pastel."),
     ("functional-art", "Functional Art",
      "Consoles and cabinets, painted and built to be lived with."),
+    ("paintings", "Paintings",
+     "Canvas, ceramic, stained glass and soft pastel."),
     ("sculpture", "Sculpture",
      "Carved and modelled forms that hold a space."),
 ]
@@ -83,6 +88,12 @@ def main() -> int:
         return (cat, order, w["title"])
 
     works = sorted(works, key=sort_key)
+
+    # A piece with no photographs yet stays off the site entirely — no card,
+    # no page, no link from its neighbours — and appears on its own the first
+    # time it is run with a photo. Its words are kept in the manifest.
+    held_back = [w["title"] for w in works if not images.get(w["slug"])]
+    works = [w for w in works if images.get(w["slug"])]
 
     lines: list[str] = []
     add = lines.append
@@ -233,6 +244,9 @@ def main() -> int:
 
     out = Path(args.out)
     out.write_text("\n".join(lines), encoding="utf-8")
+    if held_back:
+        print(f"  held back until they have a photo: {', '.join(held_back)}",
+              file=sys.stderr)
     print(f"{out}: {stats['works']} works, {stats['images']} images, "
           f"{stats['todo']} with unrecorded fields")
     return 0

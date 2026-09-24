@@ -44,6 +44,7 @@ def catalogue_years(catalogues_ts: Path) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--manifest", default="content/manifest.json")
+    ap.add_argument("--images", default="content/images.json")
     ap.add_argument("--site", default="src/data/site.ts")
     ap.add_argument("--catalogues", default="src/data/catalogues.ts")
     ap.add_argument("--out", default="public/sitemap.xml")
@@ -57,7 +58,9 @@ def main() -> int:
              for year in catalogue_years(Path(args.catalogues))]
 
     works = json.loads(Path(args.manifest).read_text(encoding="utf-8"))["works"]
-    urls += [(f"/works/{work['slug']}", "0.8") for work in works]
+    # Only published pieces: one with no photographs has no page to point at.
+    images = json.loads(Path(args.images).read_text(encoding="utf-8"))
+    urls += [(f"/works/{work['slug']}", "0.8") for work in works if images.get(work["slug"])]
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
