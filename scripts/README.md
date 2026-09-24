@@ -182,6 +182,8 @@ Every file is `art-<view>[-n][-white][-shadow].<ext>`.
 | `art-white.jpg` | cut out on white, no particular angle | "On white" |
 | `art-back.jpg` | the other side | "Back view" |
 | `art-left.jpg` `art-right.jpg` `art-top.jpg` `art-side.jpg` | angles | "Left view", … |
+| `art-left-back.jpg` `art-right-back.jpg` | three-quarter, from behind | "Back left view", "Back right view" |
+| `art-left-front.jpg` `art-right-front.jpg` | three-quarter, from in front | "Front left view", "Front right view" |
 | `art-detail-1.jpg` | a close-up, numbered | "Detail" |
 | `art-plate-1.jpg` | one piece of a collection | "No. 1" |
 
@@ -201,6 +203,19 @@ that order.
 Two genuinely different shots of the same view get a number: `art-back.jpg` and
 `art-back-2.jpg`. If the second is really a close-up, `art-detail-1.jpg`
 describes it better.
+
+The three-quarter names read the same either way round — `art-back-left` is
+`art-left-back`. A name starting `art-` that is not in the table gets a warning
+when you run the command, rather than being quietly guessed at: a guess is how
+`art-left-back` once became a second "Back view".
+
+**Which way up a photo appears is decided by your Mac, not the site.** Cameras
+often save a photograph on its side with a note saying "turn this", and the
+site now follows that note exactly as Preview and Finder do. So if a photo looks
+right when you open it on your Mac, it will look right on the site. If it looks
+sideways on your Mac, open it in Preview, use Tools → Rotate, save, and run the
+command again. Photos taken pointing straight down are the usual culprit —
+the camera cannot tell which way is up.
 
 Anything with `nametag` in the name, and anything inside an `Assembly
 pictures/` folder, is ignored. Filenames that predate the convention still

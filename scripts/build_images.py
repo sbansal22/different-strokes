@@ -29,7 +29,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 Image.MAX_IMAGE_PIXELS = 300_000_000
 
@@ -59,20 +59,26 @@ FULL_QUALITY, THUMB_QUALITY = 82, 78
 # piece, cut out on white, with a shadow. Where a shot and its shadow twin
 # both exist, the shadow one is used.
 # --------------------------------------------------------------------------
-VIEWS = ["bg", "front", "white", "back", "left", "right", "top", "side",
-         "detail", "plate"]
+VIEWS = ["bg", "front", "white", "back", "left", "right",
+         "left-back", "right-back", "left-front", "right-front",
+         "top", "side", "detail", "plate"]
 
 # Order down the detail page.
 GALLERY_ORDER = {v: i for i, v in enumerate(VIEWS)}
 # Which shot fronts the grid card: the piece in a room, else straight on.
 COVER_ORDER = {"bg": 0, "front": 1, "white": 2, "detail": 3, "plate": 4,
-               "back": 5, "left": 6, "right": 7, "top": 8, "side": 9}
+               "back": 5, "left": 6, "right": 7,
+               "left-front": 8, "right-front": 9, "left-back": 10, "right-back": 11,
+               "top": 12, "side": 13}
 
 CAPTIONS = {"bg": "In the room", "front": "Full view", "white": "On white",
             "back": "Back view", "left": "Left view", "right": "Right view",
+            "left-back": "Back left view", "right-back": "Back right view",
+            "left-front": "Front left view", "right-front": "Front right view",
             "top": "Top view", "side": "Side view", "detail": "Detail"}
 
-ART = re.compile(r"^art-(bg|front|back|left|right|top|side|white|detail|plate)"
+ART = re.compile(r"^art-((?:left|right)-(?:back|front)|(?:back|front)-(?:left|right)"
+                 r"|bg|front|back|left|right|top|side|white|detail|plate)"
                  r"(?:-(\d+))?(-white)?(-shadow)?$", re.I)
 
 # Names used before the convention existed. Kept so an archive that has not
@@ -82,6 +88,10 @@ ART = re.compile(r"^art-(bg|front|back|left|right|top|side|white|detail|plate)"
 LEGACY = [
     (re.compile(r"nametag", re.I), None),
     (re.compile(r"\bno\.?\s*\d+\b", re.I), "plate"),
+    (re.compile(r"left.?back|back.?left", re.I), "left-back"),
+    (re.compile(r"right.?back|back.?right", re.I), "right-back"),
+    (re.compile(r"left.?front|front.?left", re.I), "left-front"),
+    (re.compile(r"right.?front|front.?right", re.I), "right-front"),
     (re.compile(r"front", re.I), "front"),
     (re.compile(r"back", re.I), "back"),
     (re.compile(r"left", re.I), "left"),
@@ -110,14 +120,26 @@ def stem_of(path: str) -> str:
     return name[: -len(suffix)] if suffix in IMAGE_EXTS and suffix else name
 
 
+def normalise_view(view: str) -> str:
+    """'back-left' and 'left-back' are the same angle; store it one way."""
+    parts = view.lower().split("-")
+    if len(parts) == 2 and parts[0] in ("back", "front"):
+        parts.reverse()
+    return "-".join(parts)
+
+
 def classify(path: str) -> dict | None:
     """Read a filename as {view, number, shadow}, or None to leave it out."""
     stem = stem_of(path)
     match = ART.match(stem)
     if match:
         view, number, white, shadow = match.groups()
-        return {"view": view.lower(), "number": int(number) if number else None,
+        return {"view": normalise_view(view), "number": int(number) if number else None,
                 "white": bool(white), "shadow": bool(shadow)}
+
+    if Path(stem).name.lower().startswith("art-"):
+        print(f"  ! {path}: not a recognised name, so guessing from its words. "
+              f"See the naming list in scripts/README.md.", file=sys.stderr)
 
     for pattern, view in LEGACY:
         if pattern.search(stem):
@@ -175,24 +197,54 @@ def embedded_jpeg(path: Path) -> Image.Image | None:
     return best
 
 
+# A camera records which way up it was held as a tag, rather than turning the
+# pixels. A WebP is shown exactly as stored, so unless the turn is applied here
+# a portrait photograph comes out lying on its side.
+RAW_TURN = {2: Image.Transpose.FLIP_LEFT_RIGHT, 3: Image.Transpose.ROTATE_180,
+            4: Image.Transpose.FLIP_TOP_BOTTOM, 5: Image.Transpose.TRANSPOSE,
+            6: Image.Transpose.ROTATE_270, 7: Image.Transpose.TRANSVERSE,
+            8: Image.Transpose.ROTATE_90}
+
+
+def raw_orientation(path: Path) -> int:
+    """The orientation a CR3 records in its own metadata. Its preview lacks it."""
+    head = path.open("rb").read(400_000)
+    for marker in (b"II*\x00", b"MM\x00*"):
+        i = head.find(marker)
+        if i >= 0:
+            exif = Image.Exif()
+            exif.load(head[i:i + 65536])
+            return exif.get(0x0112) or 1
+    return 1
+
+
 def load_image(path: Path) -> Image.Image | None:
     try:
         header = path.open("rb").read(16)
     except OSError:
         return None
     if header[4:8] == b"ftyp":
-        return embedded_jpeg(path)
+        im = embedded_jpeg(path)
+        if im is None:
+            return None
+        # The preview inside a raw normally carries no orientation of its own,
+        # and the raw's metadata does. Use the preview's if it has one, so a
+        # camera that does tag it is not turned twice.
+        if (im.getexif().get(0x0112) or 1) != 1:
+            return ImageOps.exif_transpose(im)
+        turn = RAW_TURN.get(raw_orientation(path))
+        return im.transpose(turn) if turn else im
     try:
         im = Image.open(path)
         im.load()
-        return im
+        return ImageOps.exif_transpose(im)
     except Exception:
         pass
     # A corrupt ancillary chunk (a bad eXIf CRC) makes Pillow reject an
     # otherwise good file. ImageMagick is lenient.
     tmp = Path(tempfile.gettempdir()) / f"ds-recover-{os.getpid()}.png"
     try:
-        subprocess.run(["convert", str(path), str(tmp)], check=True,
+        subprocess.run(["convert", str(path), "-auto-orient", str(tmp)], check=True,
                        capture_output=True, timeout=120)
         im = Image.open(tmp)
         im.load()
