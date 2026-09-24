@@ -94,7 +94,6 @@ export function PaymentForm() {
           name: site.name,
           description: reference.trim() || "Artwork payment",
           order_id: order.order_id,
-          prefill: {},
           notes: reference.trim() ? { reference: reference.trim() } : {},
           handler: async (response: RazorpayResponse) => {
             const verification = await fetch("/api/verify-payment", {
