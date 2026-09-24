@@ -17,7 +17,8 @@
     "test:endpoints": "node scripts/test_endpoints.mjs",
     "pages:dev": "npx wrangler pages dev",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "docs:format": "python3 scripts/format_documents.py"
   },
   "overrides": {
     "rolldown": "1.2.1"
