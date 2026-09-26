@@ -656,7 +656,7 @@ For me, that is how life feels too. What we see on the outside is shaped by ever
     images: [
       im("the-core/00-bg", "In the room", "The Core, sculpture by Simpy Bansal — in the room", 1500, 2000),
       im("the-core/01-back", "Back view", "The Core, sculpture by Simpy Bansal — back view", 2000, 2000),
-      im("the-core/02-top", "Top view", "The Core, sculpture by Simpy Bansal — top view", 2000, 2000),
+      im("the-core/02-top", "Top view", "The Core, sculpture by Simpy Bansal — top view", 714, 932),
       im("the-core/03-side", "Side view", "The Core, sculpture by Simpy Bansal — side view", 1500, 2000),
     ],
   },

@@ -328,6 +328,38 @@ def prune(folder: Path, entries: list[dict]) -> int:
     return removed
 
 
+def find_piece_folders(archive: Path, slugs: set[str]) -> dict[str, Path]:
+    """Find each piece's folder anywhere under --source, by its name.
+
+    A piece lives in a folder named after its slug (the-core), and it can sit
+    at any depth: Downloads/the-core and Downloads/Sculptures/the-core both
+    count. Folders starting with _ or . are ignored. If two folders share a
+    name, neither is used, so the wrong photographs never go up.
+    """
+    found: dict[str, list[Path]] = {}
+    for path in archive.rglob("*"):
+        if not path.is_dir() or path.name not in slugs:
+            continue
+        if any(part.startswith(("_", ".")) for part in path.relative_to(archive).parts):
+            continue
+        found.setdefault(path.name, []).append(path)
+    folders = {}
+    for slug, paths in found.items():
+        if len(paths) > 1:
+            listed = ", ".join(str(q.relative_to(archive)) for q in paths)
+            print(f"  ! {slug}: more than one folder ({listed}); photos left as they are",
+                  file=sys.stderr)
+            continue
+        folders[slug] = paths[0]
+    return folders
+
+
+def fingerprint(src: Path) -> str:
+    """Changes whenever the photograph is replaced or edited, whatever its date."""
+    st = src.stat()
+    return f"{src.name}:{st.st_size}:{int(st.st_mtime)}"
+
+
 # --------------------------------------------------------------------------
 # main
 # --------------------------------------------------------------------------
@@ -352,12 +384,15 @@ def main() -> int:
         print(f"  ! archive not found at {archive}; keeping committed images", file=sys.stderr)
         archive = None
 
+    folders = find_piece_folders(archive, {w["slug"] for w in manifest["works"]}) if archive else {}
+
     rebuilt = skipped = 0
     missing: list[str] = []
     for work in manifest["works"]:
         slug = work["slug"]
         folder = work.get("archiveFolder")
-        source_dir = (archive / folder) if (archive and folder) else None
+        source_dir = folders.get(slug) or ((archive / folder) if (archive and folder) else None)
+        before = {e["full"]: e for e in index.get(slug, [])}
 
         if source_dir is None or not source_dir.is_dir():
             skipped += 1
@@ -383,8 +418,12 @@ def main() -> int:
             full = out_root / slug / f"{name}.webp"
             thumb = out_root / slug / f"{name}.thumb.webp"
 
+            # Rebuild whenever the photograph differs from the one last used —
+            # not only when it is newer, since a copied or swapped-in photo
+            # can carry an older date than the picture already on the site.
+            stamp = fingerprint(src)
             fresh = (full.exists() and thumb.exists()
-                     and min(full.stat().st_mtime, thumb.stat().st_mtime) >= src.stat().st_mtime)
+                     and before.get(f"{slug}/{name}.webp", {}).get("fingerprint") == stamp)
             if fresh and not args.force:
                 with Image.open(full) as probe:
                     size = probe.size
@@ -400,6 +439,7 @@ def main() -> int:
                 "full": f"{slug}/{name}.webp", "thumb": f"{slug}/{name}.thumb.webp",
                 "view": pick["view"], "caption": caption_for(pick),
                 "width": size[0], "height": size[1], "source": pick["path"],
+                "fingerprint": stamp,
             })
 
         index[slug] = entries
@@ -422,10 +462,8 @@ def main() -> int:
 
     total = sum(len(v) for v in index.values())
     if missing:
-        shown = ", ".join(missing[:4]) + (f" and {len(missing) - 4} more" if len(missing) > 4 else "")
-        print(f"  note: no archive folder for {shown}", file=sys.stderr)
-        print(f"        Their committed images are kept. If the originals do exist, "
-              f"scripts/normalise_archive.py renames folders to match.", file=sys.stderr)
+        print(f"  {len(missing)} piece(s) not in --source: their photos are left as they are",
+              file=sys.stderr)
     note = f", {skipped} kept as committed" if skipped else ""
     print(f"  {total} images across {len([v for v in index.values() if v])} works"
           f" ({rebuilt} from the archive{note})", file=sys.stderr)

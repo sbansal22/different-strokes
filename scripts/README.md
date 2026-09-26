@@ -12,8 +12,11 @@ npm run content -- --source ~/Downloads
 ```
 
 That reads your folder and rebuilds the site from it. **It never writes to
-your folder** — `--source` is only ever read. The folder can be anywhere; the
-subfolders just need to be named after the piece (`the-tree`, `vintage-noir`).
+your folder** — `--source` is only ever read. The folder can be anywhere, and
+each piece's folder can sit at any depth inside it: it just needs to be named
+after the piece (`the-tree`, `vintage-noir`). Pieces that aren't in `--source`
+keep the photos and text already on the site, so you can point it at a folder
+holding only the one or two pieces you changed.
 
 The repo keeps its own copy of each description, because Cloudflare builds the
 site from GitHub and cannot see your laptop. That copy is refreshed from your
@@ -71,7 +74,8 @@ Set it once in `~/.zshrc`, then you never pass a path again:
 export DS_ARTWORK_ARCHIVE=~/"Different Strokes/Artwork"
 ```
 
-It must be an ordinary folder, laid out like this:
+It must be an ordinary folder. Sorting pieces into subfolders is optional;
+the original archive looked like this:
 
 ```
 <archive>/

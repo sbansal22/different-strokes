@@ -558,7 +558,8 @@
       "caption": "In the room",
       "width": 1500,
       "height": 2000,
-      "source": "art-bg.jpg"
+      "source": "art-bg.jpg",
+      "fingerprint": "art-bg.jpg:14901754:1787703044"
     },
     {
       "full": "the-core/01-back.webp",
@@ -567,16 +568,18 @@
       "caption": "Back view",
       "width": 2000,
       "height": 2000,
-      "source": "art-back.jpg"
+      "source": "art-back.jpg",
+      "fingerprint": "art-back.jpg:2204815:1787199898"
     },
     {
       "full": "the-core/02-top.webp",
       "thumb": "the-core/02-top.thumb.webp",
       "view": "top",
       "caption": "Top view",
-      "width": 2000,
-      "height": 2000,
-      "source": "art-top.jpg"
+      "width": 714,
+      "height": 932,
+      "source": "art-top.png",
+      "fingerprint": "art-top.png:1018498:1790433128"
     },
     {
       "full": "the-core/03-side.webp",
@@ -585,7 +588,8 @@
       "caption": "Side view",
       "width": 1500,
       "height": 2000,
-      "source": "art-side-shadow.jpg"
+      "source": "art-side-shadow.jpg",
+      "fingerprint": "art-side-shadow.jpg:9547515:1787703206"
     }
   ],
   "the-tree": [
